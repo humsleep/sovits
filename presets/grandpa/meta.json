@@ -1,0 +1,14 @@
+{
+  "id": "grandpa",
+  "label": "할아버지",
+  "gender": "male",
+  "age_group": "elderly",
+  "description_en": "A frail 78-year-old Korean grandfather speaking. Thin, light, slightly higher-pitched old man's voice (around 130 Hz), not a deep bass voice; soft, a little breathy and hoarse with age, warm and kind. He speaks slowly and gently, but every word is clear. Native standard Seoul Korean accent, natural, clear, calm, neutral emotion, studio quality, no background noise.",
+  "seed": 44,
+  "f0_median": 98.0,
+  "rate_sps": 4.44,
+  "cer": 0.0,
+  "created": "2026-10-01",
+  "source": "Qwen3-TTS-12Hz-1.7B-VoiceDesign (Apache-2.0), synthetic voice",
+  "age_detail": "elderly (70s)"
+}

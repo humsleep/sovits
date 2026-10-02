@@ -1,0 +1,154 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light dark">
+<title>온음 — 내 목소리 TTS</title>
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='32' y2='32' gradientUnits='userSpaceOnUse'%3E%3Cstop offset='0' stop-color='%238B7AF0'/%3E%3Cstop offset='1' stop-color='%235B45C9'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='32' height='32' rx='9' fill='url(%23g)'/%3E%3Cg fill='%23fff'%3E%3Crect x='7.75' y='13' width='3' height='6' rx='1.5'/%3E%3Crect x='12.25' y='8.5' width='3' height='15' rx='1.5'/%3E%3Crect x='16.75' y='11' width='3' height='10' rx='1.5'/%3E%3Crect x='21.25' y='14' width='3' height='4' rx='1.5' opacity='.85'/%3E%3C/g%3E%3C/svg%3E">
+<script>
+  /* 테마를 첫 페인트 전에 적용(깜빡임 방지) */
+  try { var t = localStorage.getItem('oneum.theme'); if (t === 'light' || t === 'dark') document.documentElement.setAttribute('data-theme', t); } catch (e) {}
+</script>
+<link rel="stylesheet" href="app.css?v=27">
+</head>
+<body>
+<svg xmlns="http://www.w3.org/2000/svg" width="0" height="0" style="position:absolute;width:0;height:0;overflow:hidden" aria-hidden="true" focusable="false">
+  <defs>
+    <linearGradient id="lg-mark" x1="0" y1="0" x2="32" y2="32" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#8B7AF0"/><stop offset="1" stop-color="#5B45C9"/>
+    </linearGradient>
+  </defs>
+  <g fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+    <symbol id="i-wave" viewBox="0 0 24 24"><path d="M2 10v3M6 6v11M10 3v18M14 8v7M18 5v13M22 10v3"/></symbol>
+    <symbol id="i-user-voice" viewBox="0 0 24 24"><circle cx="9" cy="8" r="4"/><path d="M2 21a7 7 0 0 1 14 0M17.5 6.5a4 4 0 0 1 0 5M20.2 4a7.5 7.5 0 0 1 0 10"/></symbol>
+    <symbol id="i-clock" viewBox="0 0 24 24"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5M12 7v5l4 2"/></symbol>
+    <symbol id="i-book" viewBox="0 0 24 24"><path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H19a1 1 0 0 1 1 1v18a1 1 0 0 1-1 1H6.5a1 1 0 0 1 0-5H20"/><path d="m8 13 4-7 4 7M9.1 11h5.7"/></symbol>
+    <symbol id="i-play" viewBox="0 0 24 24"><path d="M7 4.6v14.8a1 1 0 0 0 1.53.85l11.8-7.4a1 1 0 0 0 0-1.7L8.53 3.75A1 1 0 0 0 7 4.6Z" fill="currentColor" stroke="none"/></symbol>
+    <symbol id="i-pause" viewBox="0 0 24 24"><rect x="6" y="4.5" width="4" height="15" rx="1.4" fill="currentColor" stroke="none"/><rect x="14" y="4.5" width="4" height="15" rx="1.4" fill="currentColor" stroke="none"/></symbol>
+    <symbol id="i-stop" viewBox="0 0 24 24"><rect x="5.5" y="5.5" width="13" height="13" rx="2.5" fill="currentColor" stroke="none"/></symbol>
+    <symbol id="i-play-wave" viewBox="0 0 24 24"><path d="M5 5.5v13a1 1 0 0 0 1.5.86l10-6.5a1 1 0 0 0 0-1.72l-10-6.5A1 1 0 0 0 5 5.5Z" fill="currentColor" stroke="none"/><path d="M19.5 9.5v5M22 8v8"/></symbol>
+    <symbol id="i-mic" viewBox="0 0 24 24"><path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3Z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2M12 19v3"/></symbol>
+    <symbol id="i-mic-off" viewBox="0 0 24 24"><path d="m2 2 20 20M18.89 13.23A7.12 7.12 0 0 0 19 12v-2M5 10v2a7 7 0 0 0 12 5M15 9.34V5a3 3 0 0 0-5.68-1.33M9 9v3a3 3 0 0 0 5.12 2.12M12 19v3"/></symbol>
+    <symbol id="i-upload" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M17 8l-5-5-5 5M12 3v12"/></symbol>
+    <symbol id="i-download" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/></symbol>
+    <symbol id="i-shuffle" viewBox="0 0 24 24"><path d="M2 18h1.4c1.3 0 2.5-.6 3.3-1.7l6.1-8.6c.7-1.1 2-1.7 3.3-1.7H22M18 2l4 4-4 4M2 6h1.9c1.5 0 2.9.9 3.6 2.2M22 18h-5.9c-1.3 0-2.6-.7-3.3-1.8l-.5-.8M18 14l4 4-4 4"/></symbol>
+    <symbol id="i-sparkle" viewBox="0 0 24 24"><path d="M9.94 15.5A2 2 0 0 0 8.5 14.06l-6.13-1.58a.5.5 0 0 1 0-.96L8.5 9.94A2 2 0 0 0 9.94 8.5l1.58-6.13a.5.5 0 0 1 .96 0L14.06 8.5A2 2 0 0 0 15.5 9.94l6.13 1.58a.5.5 0 0 1 0 .96L15.5 14.06a2 2 0 0 0-1.44 1.44l-1.58 6.13a.5.5 0 0 1-.96 0z"/><path d="M20 3v4M22 5h-4"/></symbol>
+    <symbol id="i-star" viewBox="0 0 24 24"><path d="M12 2.5l2.94 5.96 6.56.95-4.75 4.63 1.12 6.54L12 17.5l-5.87 3.08 1.12-6.54L2.5 9.41l6.56-.95z"/></symbol>
+    <symbol id="i-star-fill" viewBox="0 0 24 24"><path d="M12 2.5l2.94 5.96 6.56.95-4.75 4.63 1.12 6.54L12 17.5l-5.87 3.08 1.12-6.54L2.5 9.41l6.56-.95z" fill="currentColor"/></symbol>
+    <symbol id="i-trash" viewBox="0 0 24 24"><path d="M3 6h18M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2M10 11v6M14 11v6"/></symbol>
+    <symbol id="i-more" viewBox="0 0 24 24"><circle cx="5" cy="12" r="1.4" fill="currentColor"/><circle cx="12" cy="12" r="1.4" fill="currentColor"/><circle cx="19" cy="12" r="1.4" fill="currentColor"/></symbol>
+    <symbol id="i-plus" viewBox="0 0 24 24"><path d="M5 12h14M12 5v14"/></symbol>
+    <symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7.5"/><path d="m21 21-4.3-4.3"/></symbol>
+    <symbol id="i-x" viewBox="0 0 24 24"><path d="M18 6 6 18M6 6l12 12"/></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></symbol>
+    <symbol id="i-check-circle" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></symbol>
+    <symbol id="i-alert" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 8v4M12 16h.01"/></symbol>
+    <symbol id="i-info" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></symbol>
+    <symbol id="i-lock" viewBox="0 0 24 24"><rect x="4" y="11" width="16" height="10.5" rx="2.2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></symbol>
+    <symbol id="i-ear" viewBox="0 0 24 24"><path d="M6 8.5a6.5 6.5 0 1 1 13 0c0 6-6 6-6 10a3.5 3.5 0 1 1-7 0"/><path d="M15 8.5a2.5 2.5 0 0 0-5 0v1a2 2 0 1 1 0 4"/></symbol>
+    <symbol id="i-rewrite" viewBox="0 0 24 24"><path d="M9 14 4 9l5-5"/><path d="M20 20v-7a4 4 0 0 0-4-4H4"/></symbol>
+    <symbol id="i-arrow-left" viewBox="0 0 24 24"><path d="m12 19-7-7 7-7M19 12H5"/></symbol>
+    <symbol id="i-arrow-right" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></symbol>
+    <symbol id="i-arrow-up-right" viewBox="0 0 24 24"><path d="M7 7h10v10M7 17 17 7"/></symbol>
+    <symbol id="i-chevron-down" viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></symbol>
+    <symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2m-7.07-17.07 1.41 1.41m11.32 11.32 1.41 1.41M2 12h2m16 0h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></symbol>
+    <symbol id="i-moon" viewBox="0 0 24 24"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></symbol>
+    <symbol id="i-monitor" viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></symbol>
+    <symbol id="i-keyboard" viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M6 8h.01M10 8h.01M14 8h.01M18 8h.01M8 12h.01M12 12h.01M16 12h.01M7 16h10"/></symbol>
+    <symbol id="i-volume-off" viewBox="0 0 24 24"><path d="M11 4.7a.7.7 0 0 0-1.2-.5L6.4 7.6A1.4 1.4 0 0 1 5.4 8H3a1 1 0 0 0-1 1v6a1 1 0 0 0 1 1h2.4a1.4 1.4 0 0 1 1 .4l3.4 3.4a.7.7 0 0 0 1.2-.5z"/><path d="m22 9-6 6M16 9l6 6"/></symbol>
+    <symbol id="i-message" viewBox="0 0 24 24"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/></symbol>
+    <symbol id="i-timer" viewBox="0 0 24 24"><path d="M10 2h4M12 14l3-3"/><circle cx="12" cy="14" r="8"/></symbol>
+    <symbol id="i-file-audio" viewBox="0 0 24 24"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4M8 14v2M11 12v6M14 13v4"/></symbol>
+    <symbol id="i-refresh" viewBox="0 0 24 24"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/></symbol>
+    <symbol id="i-edit" viewBox="0 0 24 24"><path d="M12 20h9"/><path d="M16.4 3.6a2.1 2.1 0 1 1 3 3L7 19l-4 1 1-4Z"/></symbol>
+  </g>
+</svg>
+
+<a class="skip-link" href="#main">본문으로 건너뛰기</a>
+
+<div class="app" id="app">
+  <aside class="sidebar" aria-label="사이드바">
+    <a class="brand" href="#/studio" aria-label="온음 — 스튜디오로">
+      <svg class="logo-mark" viewBox="0 0 32 32" width="28" height="28" aria-hidden="true">
+        <rect width="32" height="32" rx="9" fill="url(#lg-mark)"/>
+        <g fill="#fff">
+          <rect class="lb lb1" x="7.75" y="13" width="3" height="6" rx="1.5"/>
+          <rect class="lb lb2" x="12.25" y="8.5" width="3" height="15" rx="1.5"/>
+          <rect class="lb lb3" x="16.75" y="11" width="3" height="10" rx="1.5"/>
+          <rect class="lb lb4" x="21.25" y="14" width="3" height="4" rx="1.5" opacity=".85"/>
+        </g>
+      </svg>
+      <span class="wordmark">온음</span>
+    </a>
+
+    <nav class="nav" aria-label="주 메뉴">
+      <a class="nav-item" href="#/studio" data-nav="studio" data-tip="스튜디오" data-tip-pos="right" data-tip-rail>
+        <svg class="ico" aria-hidden="true"><use href="#i-wave"/></svg><span class="nav-label">스튜디오</span>
+      </a>
+      <a class="nav-item" href="#/voices" data-nav="voices" data-tip="내 목소리" data-tip-pos="right" data-tip-rail>
+        <svg class="ico" aria-hidden="true"><use href="#i-user-voice"/></svg><span class="nav-label">내 목소리</span>
+      </a>
+      <a class="nav-item" href="#/history" data-nav="history" data-tip="기록" data-tip-pos="right" data-tip-rail>
+        <svg class="ico" aria-hidden="true"><use href="#i-clock"/></svg><span class="nav-label">기록</span>
+      </a>
+      <a class="nav-item" href="#/dictionary" data-nav="dictionary" data-tip="발음 사전" data-tip-pos="right" data-tip-rail>
+        <svg class="ico" aria-hidden="true"><use href="#i-book"/></svg><span class="nav-label">발음 사전</span>
+        <span class="nav-dot" id="dict-dot" hidden aria-label="저장하지 않은 변경 있음"></span>
+      </a>
+    </nav>
+
+    <div class="sidebar-spacer"></div>
+
+    <div class="sidebar-foot" aria-label="앱 상태" role="region">
+      <div class="status-card" id="status-card" data-state="connecting" data-tip-pos="right" data-tip-rail>
+        <div class="status-row">
+          <span class="status-dot" aria-hidden="true"><i></i><i></i><i></i></span>
+          <div class="status-text" role="status" aria-live="polite">
+            <span class="status-label-row"><span class="status-label" id="status-label">연결 중</span><span class="status-engine" id="status-engine" hidden></span></span>
+            <span class="status-sub" id="status-sub">앱에 연결하고 있어요</span>
+          </div>
+        </div>
+        <span class="status-elapsed" id="status-elapsed" aria-hidden="true"></span>
+        <div class="ibar status-bar" aria-hidden="true"></div>
+      </div>
+
+      <button class="privacy-badge" id="privacy-btn" type="button" aria-haspopup="dialog" aria-expanded="false"
+              data-tip="녹음과 텍스트는 이 맥 밖으로 나가지 않습니다" data-tip-pos="right" data-tip-rail>
+        <svg class="ico ico-14" aria-hidden="true"><use href="#i-lock"/></svg>
+        <span class="privacy-text">녹음과 텍스트는 이 맥 밖으로 나가지 않습니다</span>
+      </button>
+
+      <div class="theme-row">
+        <div class="segmented seg-sm theme-seg" role="radiogroup" aria-label="화면 테마" id="theme-seg">
+          <button type="button" role="radio" data-theme-val="system" aria-label="시스템 설정 따르기" data-tip="시스템 설정 따르기"><svg class="ico ico-14" aria-hidden="true"><use href="#i-monitor"/></svg></button>
+          <button type="button" role="radio" data-theme-val="light" aria-label="라이트" data-tip="라이트"><svg class="ico ico-14" aria-hidden="true"><use href="#i-sun"/></svg></button>
+          <button type="button" role="radio" data-theme-val="dark" aria-label="다크" data-tip="다크"><svg class="ico ico-14" aria-hidden="true"><use href="#i-moon"/></svg></button>
+          <span class="seg-indicator" aria-hidden="true"></span>
+        </div>
+        <button type="button" class="icon-btn theme-cycle" id="theme-cycle" aria-label="화면 테마" data-tip="화면 테마" data-tip-pos="right">
+          <svg class="ico" aria-hidden="true"><use href="#i-monitor"/></svg>
+        </button>
+        <a class="classic-link" href="/classic/" aria-label="예전 화면 열기" data-tip="예전 화면(Gradio) 열기" data-tip-pos="right"><svg class="ico ico-14" aria-hidden="true"><use href="#i-arrow-up-right"/></svg><span class="classic-label">예전 화면</span></a>
+      </div>
+    </div>
+  </aside>
+
+  <main class="main" id="main" tabindex="-1">
+    <div class="banner banner-offline" id="offline-banner" role="alert" hidden>
+      <svg class="ico" aria-hidden="true"><use href="#i-alert"/></svg>
+      <span>앱에 연결할 수 없어요. 터미널 창을 닫았다면 'start.command'를 다시 실행해 주세요.</span>
+      <button type="button" class="btn btn-link" id="reconnect-btn">다시 연결</button>
+    </div>
+    <div id="pages"></div>
+  </main>
+</div>
+
+<div class="toasts" id="toasts" aria-live="polite" aria-relevant="additions"></div>
+<div class="sr-only" id="sr-announce" aria-live="polite"></div>
+<div class="tooltip" id="tooltip" role="tooltip" hidden></div>
+<audio id="audio" preload="auto" hidden></audio>
+
+<script src="app.js?v=27"></script>
+</body>
+</html>

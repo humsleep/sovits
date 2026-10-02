@@ -1,0 +1,14 @@
+{
+  "id": "student_f",
+  "label": "여학생",
+  "gender": "female",
+  "age_group": "student",
+  "description_en": "A Korean high school student, a 17-year-old girl, with a calm, mature-sounding young female voice in the lower-middle range (around 210 Hz), like a composed young woman; not high-pitched, not childish, not cute. Clear, smooth, fresh timbre, natural moderate pace. Native standard Seoul Korean accent, natural, clear, calm, neutral emotion, studio quality, no background noise.",
+  "seed": 33,
+  "f0_median": 267.8,
+  "rate_sps": 5.33,
+  "cer": 0.0,
+  "created": "2026-10-01",
+  "source": "Qwen3-TTS-12Hz-1.7B-VoiceDesign (Apache-2.0), synthetic voice",
+  "age_detail": "teen (~16)"
+}

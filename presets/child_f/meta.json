@@ -1,0 +1,14 @@
+{
+  "id": "child_f",
+  "label": "여자 어린이",
+  "gender": "female",
+  "age_group": "child",
+  "description_en": "A young child, a little girl about eight years old, with a very high, thin, prepubescent voice (around 320 Hz), not an adult woman, speaking at a moderate pace with clear child pronunciation. Native standard Seoul Korean accent, natural, clear, calm, neutral emotion, studio quality, no background noise.",
+  "seed": 55,
+  "f0_median": 326.0,
+  "rate_sps": 4.63,
+  "cer": 0.0,
+  "created": "2026-10-01",
+  "source": "Qwen3-TTS-12Hz-1.7B-VoiceDesign (Apache-2.0), synthetic voice",
+  "age_detail": "child (~8)"
+}

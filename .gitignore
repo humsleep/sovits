@@ -1,0 +1,16 @@
+# 외부 엔진/환경 (setup.sh 로 설치)
+GPT-SoVITS/
+.venv-mlx/
+.venv/
+
+# 개인 데이터 — 절대 올리지 않음 (목소리 = 생체정보, 기록 = 개인 텍스트)
+voices/
+out/
+settings.json
+
+# 실행 중 생성되는 파일
+.tts_infer.yaml
+.gradio_tmp/
+__pycache__/
+*.pyc
+.DS_Store

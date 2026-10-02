@@ -1,0 +1,14 @@
+{
+  "id": "student_m",
+  "label": "남학생",
+  "gender": "male",
+  "age_group": "student",
+  "description_en": "A 16-year-old Korean high school boy speaking. Teenage male voice that has recently broken, medium-low pitch but lighter and younger than an adult man, fresh and slightly airy timbre, natural moderate pace. Native standard Seoul Korean accent, natural, clear, calm, neutral emotion, studio quality, no background noise.",
+  "seed": 55,
+  "f0_median": 122.1,
+  "rate_sps": 6.11,
+  "cer": 0.0,
+  "created": "2026-10-01",
+  "source": "Qwen3-TTS-12Hz-1.7B-VoiceDesign (Apache-2.0), synthetic voice",
+  "age_detail": "teen (~16)"
+}

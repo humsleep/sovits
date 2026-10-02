@@ -1,0 +1,14 @@
+{
+  "id": "adult_m",
+  "label": "성인 남성",
+  "gender": "male",
+  "age_group": "adult",
+  "description_en": "A Korean man in his mid-thirties speaking. Mature adult male voice, low-to-medium pitch, warm, rich and resonant timbre, steady moderate pace, like a professional narrator. Native standard Seoul Korean accent, natural, clear, calm, neutral emotion, studio quality, no background noise.",
+  "seed": 22,
+  "f0_median": 107.5,
+  "rate_sps": 5.93,
+  "cer": 0.0,
+  "created": "2026-10-01",
+  "source": "Qwen3-TTS-12Hz-1.7B-VoiceDesign (Apache-2.0), synthetic voice",
+  "age_detail": "adult (30s)"
+}

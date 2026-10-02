@@ -1,0 +1,14 @@
+{
+  "id": "grandma",
+  "label": "할머니",
+  "gender": "female",
+  "age_group": "elderly",
+  "description_en": "An old woman, 75 years old, with a soft aged voice, slightly husky and trembling with age, pitch around 190 Hz, speaking at a slow, unhurried pace with clear pronunciation. Native standard Seoul Korean accent, natural, clear, calm, neutral emotion, studio quality, no background noise.",
+  "seed": 11,
+  "f0_median": 174.7,
+  "rate_sps": 4.59,
+  "cer": 0.0,
+  "created": "2026-10-01",
+  "source": "Qwen3-TTS-12Hz-1.7B-VoiceDesign (Apache-2.0), synthetic voice",
+  "age_detail": "elderly (70s)"
+}
