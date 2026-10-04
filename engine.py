@@ -604,6 +604,9 @@ class Engine:
     def synth_stream(self, text, voice=None, speed=1.0, seed=None):
         """(sr, int16 조각)을 차례로 내보낸다. 빠른 모드는 한 번에 전체를 내보낸다."""
         gen = self._stop_gen
+        # 백엔드는 자기 카운터로 중단 여부를 판단한다. 엔진 전환(set_engine)은 이전 백엔드의 카운터만 올리므로
+        # Engine 의 카운터를 넘기면 둘이 어긋나 이후 모든 요청이 '중단되었습니다'로 거절된다.
+        backend_gen = self.backend._stop_gen
         voice, ref, prompt = self.prepare(text, voice, speed)
         if self.current == "sovits":
             yield self.backend.synth(text, voice=voice, speed=speed, seed=seed)
@@ -612,7 +615,7 @@ class Engine:
         if not sents:
             raise UserError("읽을 텍스트가 비어 있습니다.")
         n = 0
-        for sr, chunk in self.backend.synth_stream(sents, ref, prompt, speed, seed, gen):
+        for sr, chunk in self.backend.synth_stream(sents, ref, prompt, speed, seed, backend_gen):
             if self._stop_gen != gen:
                 raise UserError("중단되었습니다.")
             n += len(chunk)
