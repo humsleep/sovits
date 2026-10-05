@@ -14,6 +14,8 @@ import base64
 import json
 import os
 import queue
+import shutil
+import subprocess
 import sys
 import threading
 
@@ -36,6 +38,27 @@ def pcm(a):
     import numpy as np
     a = np.clip(np.asarray(a, dtype=np.float32).reshape(-1), -1.0, 1.0)
     return base64.b64encode((a * 32767).astype("<i2").tobytes()).decode()
+
+
+def time_stretch(a, speed):
+    """음높이를 유지한 채 속도만 바꾼다. ffmpeg atempo(WSOLA)는 말소리의 배음을 보존한다.
+    librosa 의 phase vocoder 는 1.1배만 넘어도 목소리가 금속성으로 뭉개진다. ffmpeg 가 없으면 librosa 로 대체."""
+    import numpy as np
+    exe = shutil.which("ffmpeg") or next((p for p in ("/opt/homebrew/bin/ffmpeg", "/usr/local/bin/ffmpeg") if os.path.exists(p)), None)
+    a = np.asarray(a, dtype=np.float32).reshape(-1)
+    if exe:
+        try:
+            r = subprocess.run(
+                [exe, "-loglevel", "error", "-f", "f32le", "-ar", str(SR), "-ac", "1", "-i", "pipe:0",
+                 "-af", f"atempo={speed:.4f}", "-f", "f32le", "-ar", str(SR), "-ac", "1", "pipe:1"],
+                input=a.tobytes(), capture_output=True, timeout=120, check=True)
+            out = np.frombuffer(r.stdout, dtype=np.float32)
+            if out.size:
+                return out
+        except (OSError, subprocess.SubprocessError):
+            pass
+    import librosa
+    return librosa.effects.time_stretch(a, rate=speed)
 
 
 def main():
@@ -85,8 +108,7 @@ def main():
                     else:
                         parts.append(a)
                 if parts and not stop.is_set():  # 속도 조절은 문장 단위로 (음높이 유지)
-                    import librosa
-                    a = librosa.effects.time_stretch(np.concatenate(parts), rate=speed)
+                    a = time_stretch(np.concatenate(parts), speed)
                     send({"type": "chunk", "id": jid, "pcm": pcm(a)})
                 if k < len(job["sentences"]) - 1 and not stop.is_set():
                     send({"type": "chunk", "id": jid, "pcm": pcm(np.zeros(int(GAP_S * SR / speed)))})
